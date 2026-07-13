@@ -1,0 +1,17 @@
+County_FIPS_Code,County,PM25_Annual_Mean_2024,n_sites,Population_2020_Census,Data_Mode
+55003,Ashland,4.697527,1,16027,fallback_county_snapshot
+55009,Brown,6.135246,1,268740,fallback_county_snapshot
+55025,Dane,6.434959,2,561504,fallback_county_snapshot
+55027,Dodge,5.394867,1,89396,fallback_county_snapshot
+55035,Eau Claire,6.448328,1,105710,fallback_county_snapshot
+55041,Forest,4.722958,1,9179,fallback_county_snapshot
+55043,Grant,7.346175,1,51938,fallback_county_snapshot
+55053,Jackson,5.677617,1,21145,fallback_county_snapshot
+55059,Kenosha,5.972404,1,169151,fallback_county_snapshot
+55073,Marathon,5.492896,1,138013,fallback_county_snapshot
+55079,Milwaukee,7.037637,2,939489,fallback_county_snapshot
+55081,Monroe,4.546407,1,46274,fallback_county_snapshot
+55087,Outagamie,6.106887,1,190705,fallback_county_snapshot
+55089,Ozaukee,5.109836,1,91503,fallback_county_snapshot
+55111,Sauk,5.60082,1,65763,fallback_county_snapshot
+55133,Waukesha,6.970588,1,406978,fallback_county_snapshot

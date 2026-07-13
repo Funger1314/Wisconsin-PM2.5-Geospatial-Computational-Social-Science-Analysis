@@ -1,0 +1,36 @@
+State,County,County_FIPS_Code,Population_2020_Census,PM25_Weighted_Annual_Mean_ug_m3,PM25_24hr_ug_m3
+Wisconsin,Ashland County,55003,16027,4.7,16.0
+Wisconsin,Brown County,55009,268740,6.1,18.0
+Wisconsin,Columbia County,55021,58490,,
+Wisconsin,Dane County,55025,561504,6.9,15.0
+Wisconsin,Dodge County,55027,89396,5.5,13.0
+Wisconsin,Door County,55029,30066,,
+Wisconsin,Douglas County,55031,44295,,
+Wisconsin,Eau Claire County,55035,105710,,
+Wisconsin,Fond du Lac County,55039,104154,,
+Wisconsin,Forest County,55041,9179,5.3,19.0
+Wisconsin,Grant County,55043,51938,7.3,18.0
+Wisconsin,Jackson County,55053,21145,,
+Wisconsin,Jefferson County,55055,84900,,
+Wisconsin,Kenosha County,55059,169151,6.0,16.0
+Wisconsin,Kewaunee County,55061,20563,,
+Wisconsin,La Crosse County,55063,120784,,
+Wisconsin,Manitowoc County,55071,81359,,
+Wisconsin,Marathon County,55073,138013,5.5,15.0
+Wisconsin,Milwaukee County,55079,939489,7.6,19.0
+Wisconsin,Monroe County,55081,46274,,
+Wisconsin,Oneida County,55085,37845,,
+Wisconsin,Outagamie County,55087,190705,6.0,19.0
+Wisconsin,Ozaukee County,55089,91503,5.1,14.0
+Wisconsin,Racine County,55101,197727,,
+Wisconsin,Rock County,55105,163687,,
+Wisconsin,St. Croix County,55109,93536,,
+Wisconsin,Sauk County,55111,65763,5.6,14.0
+Wisconsin,Sheboygan County,55117,118034,,
+Wisconsin,Taylor County,55119,19913,,
+Wisconsin,Vilas County,55125,23047,,
+Wisconsin,Walworth County,55127,106478,,
+Wisconsin,Waukesha County,55133,406978,7.1,17.0
+Wisconsin,Waupaca County,55135,51812,,
+Wisconsin,Winnebago County,55139,171730,,
+Wisconsin,Wood County,55141,74207,,

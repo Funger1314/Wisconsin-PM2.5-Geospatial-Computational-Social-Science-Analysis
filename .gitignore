@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.jupyter/
+.mplconfig/
+__MACOSX/
+._*
+.DS_Store

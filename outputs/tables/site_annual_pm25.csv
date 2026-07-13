@@ -1,0 +1,17 @@
+County_FIPS_Code,County,n_sites,Site ID,site_annual_pm25,source_status
+55003,Ashland,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55009,Brown,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55025,Dane,2,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55027,Dodge,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55035,Eau Claire,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55041,Forest,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55043,Grant,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55053,Jackson,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55059,Kenosha,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55073,Marathon,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55079,Milwaukee,2,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55081,Monroe,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55087,Outagamie,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55089,Ozaukee,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55111,Sauk,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.
+55133,Waukesha,1,,,Site-level values unavailable because raw daily EPA data could not be retrieved in this rebuild.

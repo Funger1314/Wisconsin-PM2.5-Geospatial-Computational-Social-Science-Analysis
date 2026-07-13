@@ -1,0 +1,17 @@
+County,County_FIPS_Code,PM25_Annual_Mean_2024,n_sites,Population_2020_Census_simplified,PM25_simplified_wtd_am_ug_m3,PM25_simplified_24hr_ug_m3,Population_2020_Census_factbook,PM25_factbook_wtd_am_ug_m3,PM25_factbook_24hr_ug_m3,Population_2020_Census,Population_Source,pm25_minus_simplified,pm25_minus_factbook,Data_Mode
+Ashland,55003,4.697527,1,16027,4.7,16.0,16027.0,4.7,16.0,16027,Wisconsin_PM25_simplified.xlsx,-0.0024730000000001695,-0.0024730000000001695,fallback_county_snapshot
+Brown,55009,6.135246,1,268740,6.1,18.0,268740.0,6.1,18.0,268740,Wisconsin_PM25_simplified.xlsx,0.03524600000000078,0.03524600000000078,fallback_county_snapshot
+Dane,55025,6.434959,2,561504,6.9,15.0,561504.0,6.9,15.0,561504,Wisconsin_PM25_simplified.xlsx,-0.46504100000000026,-0.46504100000000026,fallback_county_snapshot
+Dodge,55027,5.394867,1,89396,5.5,13.0,89396.0,5.5,13.0,89396,Wisconsin_PM25_simplified.xlsx,-0.10513300000000037,-0.10513300000000037,fallback_county_snapshot
+Eau Claire,55035,6.448328,1,105710,,,105710.0,,,105710,Wisconsin_PM25_simplified.xlsx,,,fallback_county_snapshot
+Forest,55041,4.722958,1,9179,5.3,19.0,9179.0,5.3,19.0,9179,Wisconsin_PM25_simplified.xlsx,-0.5770419999999996,-0.5770419999999996,fallback_county_snapshot
+Grant,55043,7.346175,1,51938,7.3,18.0,51938.0,7.3,18.0,51938,Wisconsin_PM25_simplified.xlsx,0.046174999999999855,0.046174999999999855,fallback_county_snapshot
+Jackson,55053,5.677617,1,21145,,,21145.0,,,21145,Wisconsin_PM25_simplified.xlsx,,,fallback_county_snapshot
+Kenosha,55059,5.972404,1,169151,6.0,16.0,169151.0,6.0,16.0,169151,Wisconsin_PM25_simplified.xlsx,-0.027595999999999954,-0.027595999999999954,fallback_county_snapshot
+Marathon,55073,5.492896,1,138013,5.5,15.0,138013.0,5.5,15.0,138013,Wisconsin_PM25_simplified.xlsx,-0.007103999999999999,-0.007103999999999999,fallback_county_snapshot
+Milwaukee,55079,7.037637,2,939489,7.6,19.0,939489.0,7.6,19.0,939489,Wisconsin_PM25_simplified.xlsx,-0.5623629999999995,-0.5623629999999995,fallback_county_snapshot
+Monroe,55081,4.546407,1,46274,,,46274.0,,,46274,Wisconsin_PM25_simplified.xlsx,,,fallback_county_snapshot
+Outagamie,55087,6.106887,1,190705,6.0,19.0,190705.0,6.0,19.0,190705,Wisconsin_PM25_simplified.xlsx,0.1068870000000004,0.1068870000000004,fallback_county_snapshot
+Ozaukee,55089,5.109836,1,91503,5.1,14.0,91503.0,5.1,14.0,91503,Wisconsin_PM25_simplified.xlsx,0.009835999999999956,0.009835999999999956,fallback_county_snapshot
+Sauk,55111,5.60082,1,65763,5.6,14.0,65763.0,5.6,14.0,65763,Wisconsin_PM25_simplified.xlsx,0.0008200000000000429,0.0008200000000000429,fallback_county_snapshot
+Waukesha,55133,6.970588,1,406978,7.1,17.0,406978.0,7.1,17.0,406978,Wisconsin_PM25_simplified.xlsx,-0.12941199999999942,-0.12941199999999942,fallback_county_snapshot

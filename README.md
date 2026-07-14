@@ -72,9 +72,13 @@ Useful partial targets:
 - `outputs/tables/wisconsin_counties_pm25_joined.geojson`
 - `outputs/figures/pm25_2024_choropleth.png`
 - `outputs/figures/pm25_2024_ranked_bar.png`
+- `outputs/figures/global_moran_sensitivity.png`
 - `outputs/figures/lisa_cluster_map_legacy.png`
 - `outputs/figures/lisa_cluster_map_knn4.png`
+- `outputs/figures/lisa_weights_comparison.png`
 - `outputs/figures/pm25_vs_population_density.png`
+- `outputs/tables/spatial_weights_comparison.csv`
+- `outputs/tables/local_cluster_stability.csv`
 - `outputs/logs/VALIDATION_REPORT.md`
 - `reports/Wisconsin_PM25_Writing_Sample_2to3_pages.docx`
 - `reports/Wisconsin_PM25_Writing_Sample_2to3_pages.pdf`
@@ -90,7 +94,22 @@ Useful partial targets:
 
 ## Legacy Versus Corrected Analysis
 - `Legacy replication` keeps the original county benchmark targets and the Queen-based spatial setup, including its disconnected topology.
-- `Corrected analysis` adds a KNN robustness specification so every monitored county has neighbors and local cluster claims are less fragile.
+- `Corrected analysis` preserves the legacy Queen result but adds KNN sensitivity specifications with `k = 3`, `4`, and `5` so the spatial conclusions can be checked against alternative neighborhood definitions.
+
+## Spatial-Weights Sensitivity Results
+
+| Specification | Moran's I | p-value | Components | Islands |
+| --- | --- | --- | --- | --- |
+| Queen | -0.139923 | 0.402 | 8 | 5 |
+| KNN3 | -0.097149 | 0.461 | 1 | 0 |
+| KNN4 | -0.080429 | 0.476 | 1 | 0 |
+| KNN5 | -0.029374 | 0.307 | 1 | 0 |
+
+Queen contiguity reflects literal shared boundaries, but it becomes problematic when the analysis is restricted to sparsely monitored counties because the monitored-only graph fragments into eight connected components and leaves five island counties. KNN connects every monitored county to a fixed number of geographically nearest monitored counties and is used here as a robustness specification rather than as an objectively correct replacement.
+
+The absence of significant global autocorrelation is robust across all tested specifications. Individual LISA cluster labels are not robust: Ozaukee appears as `Low-High` under Queen and KNN3 but disappears under KNN4 and KNN5, while Ashland appears as `Low-Low` only under KNN5. KNN does not repair the underlying lack of monitoring coverage, and the inference remains restricted to the 16 monitored counties represented in the descriptive county snapshot used in this project.
+
+![Global Moran Sensitivity](outputs/figures/global_moran_sensitivity.png)
 
 ## My Contribution
 **Yifang Qiu**: analysis, spatial joining, choropleth mapping, county ranking, Global Moran's I, Local Moran's I, and visualization.

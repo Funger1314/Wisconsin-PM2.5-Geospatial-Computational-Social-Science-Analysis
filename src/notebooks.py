@@ -29,6 +29,8 @@ county_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "county_annual_pm2
 coverage_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "county_monitor_coverage.csv")
 joined_gdf = gpd.read_file(PROJECT_ROOT / "outputs" / "tables" / "wisconsin_counties_pm25_joined.geojson")
 spatial_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "spatial_sensitivity_results.csv")
+weights_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "spatial_weights_comparison.csv")
+stability_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "local_cluster_stability.csv")
 pm25_population_df = pd.read_csv(PROJECT_ROOT / "outputs" / "tables" / "pm25_population_context.csv")
 """
 
@@ -89,7 +91,7 @@ def build_portfolio_notebook(correlation: float, global_i: float, global_p: floa
         "## 9. County ranking\nGrant County is the highest benchmark county and Monroe County the lowest among monitored counties.",
         f"## 10. Global spatial autocorrelation\nThe legacy Queen specification produced Moran's I = {global_i:.3f} with simulation p-value = {global_p:.3f} under a fixed seed of 42. This is a weak and statistically uncertain signal.",
         "## 11. Local spatial autocorrelation\nLocal Moran categories are highly sensitive to monitor geography, especially under the disconnected legacy Queen graph.",
-        "## 12. Sensitivity analysis\nA k-nearest-neighbor alternative removes islands and provides a more defensible adjacency structure, though the sample remains small.",
+        "## 12. Spatial-Weights Sensitivity Analysis\nThe monitored-only Queen graph fragments because only counties with PM2.5 observations are included. If a monitored county has no monitored contiguous neighbor, it becomes an island. K-nearest-neighbor weights are used here as a sensitivity specification: they avoid islands by connecting each monitored county to a fixed number of geographically nearest monitored counties, while changing k changes the geographic scale of the spatial lag and the local permutation test.",
         "## 13. Interpretation and policy relevance\nAll monitored-county descriptive annual means are below 9.0 µg/m³, but these averages are not EPA regulatory design values and should not be interpreted as formal attainment determinations.",
         "## 14. Limitations\nCounty-level monitored means are not equivalent to population exposure. Sparse placement, monitor siting, and missing counties all constrain interpretation.",
         "## 15. Conclusion\nThe strongest conclusion is descriptive: monitored PM2.5 values vary across Wisconsin, but the monitor network is too sparse for broad statewide cluster claims.",
@@ -139,7 +141,23 @@ def build_portfolio_notebook(correlation: float, global_i: float, global_p: floa
         elif section.startswith("## 12."):
             notebook.cells.append(
                 new_code_cell(
-                    "print(spatial_df[spatial_df['specification'].str.startswith('knn_')][['specification', 'County', 'cluster', 'global_moran_I', 'global_p_sim']].head(20).to_string(index=False))"
+                    "print(weights_df[['specification', 'k', 'n_components', 'n_islands', 'global_moran_I', 'global_p_sim', 'n_significant_local_clusters', 'significant_local_counties']].to_string(index=False))"
+                )
+            )
+            notebook.cells.append(
+                new_markdown_cell(
+                    "![Global Moran Sensitivity](../outputs/figures/global_moran_sensitivity.png)\n\n"
+                    "![LISA Weights Comparison](../outputs/figures/lisa_weights_comparison.png)"
+                )
+            )
+            notebook.cells.append(
+                new_code_cell(
+                    "print(stability_df[['County', 'queen_cluster', 'knn3_cluster', 'knn4_cluster', 'knn5_cluster', 'significant_specification_count', 'stable_cluster']].to_string(index=False))"
+                )
+            )
+            notebook.cells.append(
+                new_markdown_cell(
+                    "The substantive global conclusion is stable across spatial-weight definitions. Global Moran’s I is statistically insignificant under Queen contiguity and under KNN specifications with k ranging from 3 to 5. However, local LISA classifications are not stable. The Queen graph is fragmented because only monitored counties are included, leaving five counties without contiguous monitored neighbors. KNN eliminates islands, but changing k alters each county’s spatial lag and the resulting local permutation test. Accordingly, county-specific cluster labels are treated as exploratory rather than robust policy findings."
                 )
             )
         elif section.startswith("## 13."):

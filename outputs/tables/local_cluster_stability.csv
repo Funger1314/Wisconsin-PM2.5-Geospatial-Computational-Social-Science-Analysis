@@ -1,0 +1,17 @@
+County,County_FIPS_Code,PM25_Annual_Mean_2024,queen_cluster,queen_p,knn3_cluster,knn3_p,knn4_cluster,knn4_p,knn5_cluster,knn5_p,significant_specification_count,stable_cluster,stability_interpretation
+Ashland,55003,4.697527,No neighbors,0.001,Not significant,0.211,Not significant,0.161,Low-Low,0.027,1,Not robust,Significant local labels appear under KNN5 but do not persist across at least three non-island specifications.
+Brown,55009,6.135246,Not significant,0.398,Not significant,0.264,Not significant,0.205,Not significant,0.074,0,Not robust,No statistically significant local cluster under any tested specification.
+Dane,55025,6.434959,Not significant,0.332,Not significant,0.358,Not significant,0.074,Not significant,0.31,0,Not robust,No statistically significant local cluster under any tested specification.
+Dodge,55027,5.394867,Not significant,0.094,Not significant,0.283,Not significant,0.359,Not significant,0.131,0,Not robust,No statistically significant local cluster under any tested specification.
+Eau Claire,55035,6.448328,Not significant,0.471,Not significant,0.112,Not significant,0.103,Not significant,0.396,0,Not robust,No statistically significant local cluster under any tested specification.
+Forest,55041,4.722958,No neighbors,0.001,Not significant,0.498,Not significant,0.192,Not significant,0.168,0,Not robust,No statistically significant local cluster under any tested specification.
+Grant,55043,7.346175,No neighbors,0.001,Not significant,0.295,Not significant,0.292,Not significant,0.221,0,Not robust,No statistically significant local cluster under any tested specification.
+Jackson,55053,5.677617,Not significant,0.292,Not significant,0.227,Not significant,0.182,Not significant,0.463,0,Not robust,No statistically significant local cluster under any tested specification.
+Kenosha,55059,5.972404,No neighbors,0.001,Not significant,0.123,Not significant,0.231,Not significant,0.148,0,Not robust,No statistically significant local cluster under any tested specification.
+Marathon,55073,5.492896,No neighbors,0.001,Not significant,0.214,Not significant,0.363,Not significant,0.124,0,Not robust,No statistically significant local cluster under any tested specification.
+Milwaukee,55079,7.037637,Not significant,0.287,Not significant,0.273,Not significant,0.394,Not significant,0.252,0,Not robust,No statistically significant local cluster under any tested specification.
+Monroe,55081,4.546407,Not significant,0.453,Not significant,0.499,Not significant,0.167,Not significant,0.272,0,Not robust,No statistically significant local cluster under any tested specification.
+Outagamie,55087,6.106887,Not significant,0.408,Not significant,0.367,Not significant,0.216,Not significant,0.072,0,Not robust,No statistically significant local cluster under any tested specification.
+Ozaukee,55089,5.109836,Low-High,0.024,Low-High,0.035,Not significant,0.106,Not significant,0.098,2,Not robust,"Significant local labels appear under Queen, KNN3 but do not persist across at least three non-island specifications."
+Sauk,55111,5.60082,Not significant,0.255,Not significant,0.284,Not significant,0.414,Not significant,0.467,0,Not robust,No statistically significant local cluster under any tested specification.
+Waukesha,55133,6.970588,Not significant,0.42,Not significant,0.42,Not significant,0.391,Not significant,0.238,0,Not robust,No statistically significant local cluster under any tested specification.

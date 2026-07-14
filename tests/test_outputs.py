@@ -10,12 +10,16 @@ def test_required_outputs_exist_and_are_nonempty():
     required_paths = [
         OUTPUTS_DIR / "figures" / "pm25_2024_choropleth.png",
         OUTPUTS_DIR / "figures" / "pm25_2024_ranked_bar.png",
+        OUTPUTS_DIR / "figures" / "global_moran_sensitivity.png",
         OUTPUTS_DIR / "figures" / "lisa_cluster_map_legacy.png",
         OUTPUTS_DIR / "figures" / "lisa_cluster_map_knn4.png",
+        OUTPUTS_DIR / "figures" / "lisa_weights_comparison.png",
         OUTPUTS_DIR / "figures" / "pm25_vs_population_density.png",
         OUTPUTS_DIR / "tables" / "county_annual_pm25.csv",
         OUTPUTS_DIR / "tables" / "site_annual_pm25.csv",
         OUTPUTS_DIR / "tables" / "county_monitor_coverage.csv",
+        OUTPUTS_DIR / "tables" / "spatial_weights_comparison.csv",
+        OUTPUTS_DIR / "tables" / "local_cluster_stability.csv",
         OUTPUTS_DIR / "tables" / "wisconsin_counties_pm25_joined.geojson",
         OUTPUTS_DIR / "tables" / "spatial_sensitivity_results.csv",
         REPORTS_DIR / "Wisconsin_PM25_Writing_Sample_2to3_pages.docx",
@@ -50,4 +54,3 @@ def test_readme_includes_reproduction_commands():
     readme = (PROJECT_ROOT / "README.md").read_text(encoding="utf-8")
     assert "make all" in readme
     assert "make analysis" in readme
-

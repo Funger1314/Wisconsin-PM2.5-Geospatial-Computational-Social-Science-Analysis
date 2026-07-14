@@ -63,10 +63,53 @@ Waukesha,55133,6.970588,1,6.970588,1,0.0,0
 - Permutation p-value: 0.4020000000
 - Legacy islands: Ashland, Forest, Grant, Kenosha, Marathon
 
+## Spatial-Weights Sensitivity Validation
+| specification | k | n_components | n_islands | min_neighbors | mean_neighbors | max_neighbors | global_moran_I | global_p_sim | n_significant_local_clusters | significant_local_counties |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| legacy_queen | nan | 8 | 5 | 0 | 1.125 | 3 | -0.139923 | 0.402 | 1 | Ozaukee (Low-High) |
+| knn_3 | 3.0 | 1 | 0 | 3 | 3.000 | 3 | -0.097149 | 0.461 | 1 | Ozaukee (Low-High) |
+| knn_4 | 4.0 | 1 | 0 | 4 | 4.000 | 4 | -0.080429 | 0.476 | 0 | None |
+| knn_5 | 5.0 | 1 | 0 | 5 | 5.000 | 5 | -0.029374 | 0.307 | 1 | Ashland (Low-Low) |
+
+- Fixed random seed: 42
+- Permutations per specification: 999
+- Queen contiguity among monitored counties only has 8 connected components and 5 island counties.
+- KNN3, KNN4, and KNN5 each form one connected component and zero islands.
+- KNN weights are directional nearest-neighbor graphs; they were not symmetrized in this rebuild.
+- No global specification has a permutation p-value below 0.05.
+- Local classifications are specification-sensitive and no county is robust across at least three non-island specifications.
+
+### Significant local clusters by specification
+- legacy_queen: Ozaukee (Low-High)
+- knn_3: Ozaukee (Low-High)
+- knn_4: None
+- knn_5: Ashland (Low-Low)
+
+### Local stability table
+| County | queen_cluster | knn3_cluster | knn4_cluster | knn5_cluster | significant_specification_count | stable_cluster |
+| --- | --- | --- | --- | --- | --- | --- |
+| Ashland | No neighbors | Not significant | Not significant | Low-Low | 1 | Not robust |
+| Brown | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Dane | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Dodge | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Eau Claire | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Forest | No neighbors | Not significant | Not significant | Not significant | 0 | Not robust |
+| Grant | No neighbors | Not significant | Not significant | Not significant | 0 | Not robust |
+| Jackson | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Kenosha | No neighbors | Not significant | Not significant | Not significant | 0 | Not robust |
+| Marathon | No neighbors | Not significant | Not significant | Not significant | 0 | Not robust |
+| Milwaukee | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Monroe | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Outagamie | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Ozaukee | Low-High | Low-High | Not significant | Not significant | 2 | Not robust |
+| Sauk | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+| Waukesha | Not significant | Not significant | Not significant | Not significant | 0 | Not robust |
+
 ## Tests run
 - Boundary coverage check for 72 counties
 - Five-character county GEOID check
 - Benchmark comparison table
+- Spatial-weights comparison table and local stability table
 - Notebook execution pass
 - Rendered writing sample and slide outputs created
 

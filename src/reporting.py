@@ -53,7 +53,7 @@ def build_writing_sample_docx(
     )
     for figure_path in figure_paths[:2]:
         if figure_path.exists():
-            document.add_picture(str(figure_path), width=Inches(6.2))
+            document.add_picture(str(figure_path), width=Inches(5.6))
     path = REPORTS_DIR / "Wisconsin_PM25_Writing_Sample_2to3_pages.docx"
     document.save(path)
     return path
@@ -90,7 +90,7 @@ def build_writing_sample_pdf(summary_lines: list[str], figure_paths: list[Path])
     for figure_path in figure_paths[:2]:
         if figure_path.exists():
             story.append(Spacer(1, 0.12 * inch))
-            story.append(Image(str(figure_path), width=6.8 * inch, height=4.7 * inch))
+            story.append(Image(str(figure_path), width=5.8 * inch, height=3.4 * inch))
     doc.build(story)
     return path
 
@@ -120,6 +120,36 @@ def _add_bullets(slide, lines: list[str], left: float = 0.6, top: float = 1.0, w
         paragraph.space_after = Pt(10)
 
 
+def _add_table_lines(
+    slide,
+    lines: list[str],
+    left: float = 0.6,
+    top: float = 1.0,
+    width: float = 5.4,
+    height: float = 2.4,
+) -> None:
+    textbox = slide.shapes.add_textbox(PptInches(left), PptInches(top), PptInches(width), PptInches(height))
+    frame = textbox.text_frame
+    frame.word_wrap = False
+    for idx, line in enumerate(lines):
+        paragraph = frame.paragraphs[0] if idx == 0 else frame.add_paragraph()
+        paragraph.text = line
+        paragraph.font.name = "Menlo"
+        paragraph.font.size = Pt(11.5)
+        paragraph.space_after = Pt(3)
+
+
+def _add_takeaway(slide, text: str, left: float = 0.6, top: float = 5.3, width: float = 5.4, height: float = 1.3) -> None:
+    box = slide.shapes.add_shape(MSO_AUTO_SHAPE_TYPE.ROUNDED_RECTANGLE, PptInches(left), PptInches(top), PptInches(width), PptInches(height))
+    box.fill.solid()
+    box.fill.fore_color.rgb = RGBColor(248, 239, 221)
+    box.line.color.rgb = RGBColor(152, 28, 36)
+    paragraph = box.text_frame.paragraphs[0]
+    paragraph.text = text
+    paragraph.font.size = Pt(15)
+    paragraph.font.bold = True
+
+
 def build_slide_deck(
     slide_content: list[dict[str, object]],
     figure_map: dict[str, Path],
@@ -132,7 +162,12 @@ def build_slide_deck(
     for spec in slide_content:
         slide = presentation.slides.add_slide(blank_layout)
         _add_title_band(slide, str(spec["title"]))
-        _add_bullets(slide, [str(item) for item in spec["bullets"]])
+        if spec.get("bullets"):
+            _add_bullets(slide, [str(item) for item in spec["bullets"]])
+        if spec.get("table_lines"):
+            _add_table_lines(slide, [str(item) for item in spec["table_lines"]])
+        if spec.get("takeaway"):
+            _add_takeaway(slide, str(spec["takeaway"]))
         figure_key = spec.get("figure")
         if figure_key and figure_key in figure_map and figure_map[figure_key].exists():
             slide.shapes.add_picture(str(figure_map[figure_key]), PptInches(6.2), PptInches(1.1), width=PptInches(6.5))
@@ -155,13 +190,18 @@ def build_slide_pdf(slide_content: list[dict[str, object]]) -> Path:
     styles = getSampleStyleSheet()
     title_style = ParagraphStyle("SlideTitle", parent=styles["Heading1"], textColor=colors.HexColor("#981c24"), fontSize=22, leading=26, spaceAfter=12)
     bullet_style = ParagraphStyle("SlideBullet", parent=styles["BodyText"], fontSize=13, leading=17, leftIndent=14, bulletIndent=0, spaceAfter=8)
+    table_style = ParagraphStyle("SlideTable", parent=styles["Code"], fontSize=10.5, leading=13, spaceAfter=4)
+    takeaway_style = ParagraphStyle("SlideTakeaway", parent=styles["BodyText"], fontSize=14, leading=18, textColor=colors.HexColor("#981c24"), spaceBefore=8, spaceAfter=8)
     story = []
     for index, spec in enumerate(slide_content):
         story.append(Paragraph(str(spec["title"]), title_style))
         for bullet in spec["bullets"]:
             story.append(Paragraph(str(bullet), bullet_style, bulletText="•"))
+        for line in spec.get("table_lines", []):
+            story.append(Paragraph(str(line).replace(" ", "&nbsp;"), table_style))
+        if spec.get("takeaway"):
+            story.append(Paragraph(str(spec["takeaway"]), takeaway_style))
         if index < len(slide_content) - 1:
             story.append(PageBreak())
     doc.build(story)
     return path
-
